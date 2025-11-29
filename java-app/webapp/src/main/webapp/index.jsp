@@ -115,7 +115,7 @@
     </nav>
 
     <section class="hero">
-      <h1>Welcome My Name Is Mohamed Elsayed</h1>
+      <h1>Student Management System - Archit Pant</h1>
     </section>
 
     <div class="container">
@@ -146,8 +146,9 @@
       </div>
     </div>
 
-    <footer>
-      <p>&copy; 2024 Impressive Web Page. All Rights Reserved.</p>
-    </footer>
+      <footer style="text-align: center; margin-top: 50px; color: #666;">
+    <p>© 2025 Archit Pant | Bennett University</p>
+    <p>DevOps CI/CD Project</p>
+</footer>
   </body>
 </html>
