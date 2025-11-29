@@ -1,18 +1,22 @@
-FROM ubuntu:latest
+FROM tomcat:10.0-jdk11
 
-RUN apt-get install java -y
+LABEL maintainer="Archit Pant - Bennett University"
+LABEL project="DevOps-CICD-Pipeline"
+LABEL description="Automated CI/CD pipeline for Java web application"
+LABEL version="1.0"
 
-RUN mkdir /opt/tomcat/
 
-WORKDIR /opt/tomcat
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-ADD https://dlcdn.apache.org/tomcat/tomcat-9/v10.1.28/bin/apache-tomcat-10.1.28.tar.gz /opt/tomcat
 
-RUN tar xvfz apache*.tar.gz
+COPY ../java-app/webapp/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
-RUN mv apache-tomcat-10.1.28/* /opt/tomcat 
-RUN cp -R /usr/local/tomcat/webapps.dist/* /usr/local//tomcat/webapps
-COPY ./webapp.war /usr/local/tomcat/webapps
+
 EXPOSE 8080
 
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+
+HEALTHCHECK --interval=30s --timeout=3s \
+  CMD curl -f http://localhost:8080/ || exit 1
+
+
+CMD ["catalina.sh", "run"]
