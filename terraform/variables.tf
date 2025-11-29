@@ -1,17 +1,27 @@
 variable "resource_group_name" {
-  default = "Devops-Projects"
+  default = "RG-DevOps-ArchitPant"
 }
+
 
 variable "location" {
-  default = "East US"
-}
-
-variable "vm_size" {
-  default = "Standard_B1ms"
+  default = "Central India"
 }
 
 
-
-variable "dns_prefix" {
-  default = "testnode"
+variable "jenkins_vm_name" {
+  default = "jenkins-vm-archit"
 }
+
+variable "app_vm_name" {
+  default = "docker-vm-archit"
+}
+
+
+variable "tags" {
+  default = {
+    Project = "DevOps-CICD"
+    Owner   = "Archit Pant"
+    University = "Bennett"
+  }
+}
+
