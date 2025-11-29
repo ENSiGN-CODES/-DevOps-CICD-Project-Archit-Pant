@@ -1,11 +1,24 @@
 output "jenkins_vm_public_ip" {
+  description = "Public IP address of Jenkins server"
   value = azurerm_public_ip.public_ip.ip_address
 }
 
-output "kubernetes_cluster_name" {
-  value = azurerm_kubernetes_cluster.testnode.name
+output "resource_group_name" {
+  description = "Name of the Azure resource group"
+  value = azurerm_resource_group.rg.name
 }
 
-output "kubernetes_cluster_api_server" {
-  value = azurerm_kubernetes_cluster.testnode.kube_config.0.host
+output "resource_group_location" {
+  description = "Location of the Azure resource group"
+  value = azurerm_resource_group.rg.location
+}
+
+output "jenkins_vm_name" {
+  description = "Name of the Jenkins virtual machine"
+  value = azurerm_linux_virtual_machine.jenkins_vm.name
+}
+
+output "deployment_message" {
+  description = "Deployment completion message"
+  value = "DevOps infrastructure deployed successfully by Archit Pant"
 }
